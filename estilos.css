@@ -1,0 +1,481 @@
+/*
+    ESTILOS CSS GLOBAIS - TEMA IA PRETO E AZUL ELÉTRICO
+    Define variáveis, tipografia e layout base para todas as páginas.
+*/
+
+/* Variáveis de Cor */
+:root {
+    --color-bg-primary: #0a0a0a; /* Fundo Principal (Preto) */
+    --color-primary-blue: #007BFF; /* Azul Principal (Destaque: Azul Elétrico) */
+    --color-secondary-section: #0A0A0A; /* Azul Seção 1 (Slightly darker) */
+    --color-tertiary-section: #0A0A0A; /* Azul Seção 2 (Medium dark blue) */
+    --color-dark-section: #0A0A0A; /* Azul Seção 3/Rodapé (Very dark blue) */
+    --color-text-light: #ffffff;
+    --color-menu-bg: #111010; /* Menu pode ser branco (requisito) */
+    --color-menu-text: #007BFF;
+}
+
+/* 1. Reset e Configuração de Tipografia Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-light);
+    background-color: var(--color-bg-primary);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primary-blue); /* Destaque dos Títulos */
+    margin-bottom: 1rem;
+    /* Destaque adicional para legibilidade */
+    text-shadow: 0 0 5px rgb(12, 11, 85); 
+}
+
+p {
+    margin-bottom: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* 2. Menu de Navegação (<header> e <nav>) */
+header {
+    background-color: var(--color-menu-bg);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgb(9, 48, 119);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary-blue);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-menu-text);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+}
+
+/* Estilo Hover usando cores da marca (Azul Primário) */
+nav ul li a:hover {
+    background-color: var(--color-primary-blue);
+    color: var(--color-text-light);
+}
+
+/* 3. Conteúdo Principal e Layout */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+section {
+    padding: 3rem 0;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgb(9, 48, 119);
+}
+
+/* Requisito: Cada seção com background diferente */
+#hero { /* Index Banner */
+    background-color: var(--color-bg-primary); /* Mantém o fundo preto/primário */
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Removida a URL do placehold.co, o fundo será a cor primária (preto) */
+    background-image: none; 
+    background-size: cover;
+    background-position: center;
+    margin-top: -2rem; /* Compensar padding do main */
+    padding-top: 5rem;
+}
+
+.section-a { background-color: var(--color-secondary-section); }
+.section-b { background-color: var(--color-tertiary-section); }
+.section-c { background-color: var(--color-dark-section); }
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.content-grid.reverse {
+    grid-template-areas: "media text";
+}
+.content-grid.reverse .text-content {
+    grid-area: text;
+}
+.content-grid.reverse .media-content {
+    grid-area: media;
+}
+
+.media-content img,
+.media-content video,
+.media-content audio {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 3px solid var(--color-primary-blue);
+}
+
+.image-caption {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    color: #CCCCCC;
+    text-align: center;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* 4. Estilos de Listas */
+.list-group {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.list-group ol, .list-group ul {
+    margin-top: 0.5rem;
+}
+
+/* 1. Lista com Marcadores Azuis */
+.styled-list-1 li {
+    list-style: none;
+}
+.styled-list-1 li::before {
+    content: "🔷";
+    margin-right: 0.5rem;
+    color: var(--color-primary-blue);
+}
+
+/* 2. Lista Numerada com Fundo */
+.styled-list-2 li {
+    background-color: rgba(0, 123, 255, 0.1);
+    padding: 0.3rem 0.5rem;
+    margin-bottom: 0.2rem;
+    border-left: 4px solid var(--color-primary-blue);
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* 3. Lista de Tópicos com Ícone de Destaque */
+.styled-list-3 li {
+    list-style: none;
+    font-weight: 600;
+}
+.styled-list-3 li::before {
+    content: ">>>";
+    margin-right: 0.5rem;
+    color: var(--color-text-light);
+}
+
+/* 4. Lista em Itálico */
+.styled-list-4 li {
+    font-style: italic;
+    color: #CCCCCC;
+}
+
+/* 5. Lista de Tarefas (Checkboxes visuais) */
+.styled-list-5 li {
+    list-style: none;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.styled-list-5 li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #32CD32; /* Verde para 'ok' */
+    font-weight: bold;
+}
+
+/* 6. Lista de Definições Simples */
+.styled-list-6 {
+    list-style-type: upper-roman;
+    color: var(--color-primary-blue);
+}
+.styled-list-6 li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 5. Galeria (Página Inovações) */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.gallery-item {
+    background-color: var(--color-bg-primary);
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(9, 48, 119);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(9, 48, 119);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid var(--color-primary-blue);
+    margin-bottom: 1rem;
+}
+
+.gallery-item h3 {
+    color: var(--color-primary-blue);
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.gallery-item p {
+    font-size: 0.95rem;
+    color: #CCCCCC;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 6. Formulário (Página Ajuda) */
+form {
+    background-color: var(--color-dark-section);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+fieldset {
+    border: 2px solid var(--color-primary-blue);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+legend {
+    color: var(--color-text-light);
+    background-color: var(--color-primary-blue);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    font-family: 'Roboto Mono', monospace;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--color-primary-blue);
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: var(--color-text-light);
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.3s;
+    width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-text-light);
+}
+
+.checkbox-group, .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-group label, .radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.checkbox-group input, .radio-group input {
+    margin-right: 0.5rem;
+    width: auto;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary-blue);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(9, 48, 119);
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #0099FF; /* Um azul um pouco mais claro no hover */
+    transform: translateY(-2px);
+}
+
+/* 7. Rodapé (<footer>) */
+footer {
+    background-color: var(--color-bg-primary);
+    color: #CCCCCC;
+    padding: 2rem 5%;
+    border-top: 5px solid var(--color-primary-blue);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    gap: 2rem;
+}
+
+.footer-info, .footer-links {
+    flex: 1 1 45%; /* 2 divisões de informações */
+    min-width: 300px;
+}
+
+.footer-info h4, .footer-links h4 {
+    color: var(--color-primary-blue);
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a {
+    color: #CCCCCC;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--color-primary-blue);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: var(--color-text-light);
+    font-size: 1.8rem;
+    transition: color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: var(--color-primary-blue); /* Hover com cor da marca */
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-tertiary-section);
+    font-size: 0.9rem;
+}
+
+/* 8. Estilos Responsivos */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-grid.reverse {
+        grid-template-areas: none; /* Reset order for mobile */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-info, .footer-links {
+        min-width: 100%;
+    }
+
+    .social-icons {
+        justify-content: space-around;
+        gap: 0;
+    }
+}
